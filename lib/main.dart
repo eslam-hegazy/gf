@@ -1,20 +1,22 @@
+import 'package:daldart/core/networking/dio_helper.dart';
+import 'package:daldart/features/home/controllers/home_controller.dart';
+import 'package:daldart/features/home/screens/home_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 void main() {
-  runApp(const MainApp());
+  DioHelper.init();
+  runApp(MainApp());
 }
+
 // sfsgsf
 class MainApp extends StatelessWidget {
-  const MainApp({super.key});
-
+  MainApp({super.key});
+  var controller = Get.put(HomeController());
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+    return GetMaterialApp(
+      home: HomeScreen(),
     );
   }
 }
