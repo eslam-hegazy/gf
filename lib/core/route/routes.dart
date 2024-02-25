@@ -5,6 +5,6 @@ import 'package:get/get.dart';
 List<GetPage> routes = [
   GetPage(
     name: AppRoutes.rHomeScreen,
-    page: () => const HomeScreen(),
+    page: () =>  HomeScreen(),
   ),
 ];

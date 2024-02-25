@@ -1,3 +1,4 @@
 {
-    "dart.flutterSdkPath": "E:\\gooods\\.fvm\\versions\\3.3.10"
+    "dart.flutterSdkPath": "E:\\gooods\\.fvm\\versions\\3.3.10",
+    "java.configuration.updateBuildConfiguration": "interactive"
 }

@@ -1,11 +1,13 @@
-import 'package:daldart/features/home/screens/tabs/hot_tab.dart';
-import 'package:daldart/features/home/screens/tabs/new_tab.dart';
-import 'package:daldart/features/home/screens/tabs/rising_tab.dart';
+import 'package:daldart/features/home/controllers/home_controller.dart';
+import 'package:daldart/features/home/screens/tabs/sports_tab.dart';
+import 'package:daldart/features/home/screens/tabs/science_tab.dart';
+import 'package:daldart/features/home/screens/tabs/health_tab.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
-
+  HomeScreen({Key? key}) : super(key: key);
+  var controller = Get.put(HomeController());
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -15,17 +17,17 @@ class HomeScreen extends StatelessWidget {
           title: const Text('/r/FlutterDev'),
           bottom: const TabBar(
             tabs: [
-              Tab(text: 'Hot'),
-              Tab(text: 'New'),
-              Tab(text: 'Rising'),
+              Tab(text: 'Sports'),
+              Tab(text: 'Science'),
+              Tab(text: 'Health'),
             ],
           ),
         ),
         body: const TabBarView(
           children: [
-            HotTab(),
-            NewTab(),
-            RisingTab(),
+            SportsTab(),
+            ScienceTab(),
+            HealthTab(),
           ],
         ),
       ),

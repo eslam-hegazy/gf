@@ -7,15 +7,17 @@ class DioHelper {
 
   static init() {
     // Set default configurations for Dio instance
-    dio.options.baseUrl = 'https://www.reddit.com/r/FlutterDev/';
+    dio.options.baseUrl = 'https://newsapi.org/';
     dio.options.connectTimeout = const Duration(seconds: 7); // 7 seconds
     dio.options.receiveTimeout = const Duration(seconds: 7); // 7 seconds
   }
 
   // get data
-  static Future<Response> getData(String endpoint) async {
+  static Future<Response> getData(
+      {required String endpoint, Map<String, dynamic>? query}) async {
     try {
-      Response response = await dio.get(endpoint);
+      Response response =
+          await dio.get(endpoint, queryParameters: query);
       return response;
     } on DioException catch (e) {
       if (e.type == DioExceptionType.connectionTimeout) {
@@ -33,9 +35,13 @@ class DioHelper {
   }
 
   // post data
-  static Future<Response> postData(String endpoint, dynamic data) async {
+  static Future<Response> postData(
+      {required String endpoint,
+      required dynamic data,
+      Map<String, dynamic>? headers}) async {
     try {
-      Response response = await dio.post(endpoint, data: data);
+      Response response = await dio.post(endpoint,
+          data: data, options: Options(headers: headers));
       return response;
     } on DioException catch (e) {
       if (e.type == DioExceptionType.connectionTimeout) {

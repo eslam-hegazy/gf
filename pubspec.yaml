@@ -11,6 +11,8 @@ dependencies:
   flutter:
     sdk: flutter
   get: ^4.6.6
+  mockito: ^5.4.4
+  url_launcher: ^6.2.5
 
 dev_dependencies:
   flutter_test:
